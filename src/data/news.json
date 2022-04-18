@@ -1,0 +1,35 @@
+[{
+  "_id": "625489d58227eb3fd53ff805",
+  "lat": 51.1657
+  ,
+  "long": 10,
+  "category": "carbon",
+  "headline": "COVID: S Korea reports record cases as Omicron wave nears peak",
+  "content": "Country long hailed as a pandemic success story reports more than 621,000 cases and 429 deaths.",
+  "image": "https://www.aljazeera.com/wp-content/uploads/2022/03/000_326B8Y8.jpg?resize=770%2C513",
+  "link": "https://www.aljazeera.com/news/2022/3/17/korea-covid-record",
+  "isActive": true,
+  "country": "korea"
+},{
+  "_id":  "6255ad4f8b16797e62a3fdfd",
+  "lat":47.7511,
+  "long": -120.7401,
+  "category": "wildfire",
+  "headline": "Apple and Google app stores remain available in Russia. Activists and officials say that’s a good thing.",
+  "content": "The cybersecurity firm Cloudflare also remains active in Russia. Withdrawing its services would hurt Russians’ ability to access independent sources of information, officials say.",
+  "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U7ZIQJUU6II6ZOZROT6ANQFDUU.jpg&w=916",
+  "link": "https://www.washingtonpost.com/technology/2022/04/06/navalny-apple-app-russia/",
+  "isActive": true,
+  "country": "usa"
+},{
+  "_id": "6255adcc8b16797e62a3fdfe",
+  "lat": 37.5665,
+  "long":126.9780,
+  "category": "earthquake",
+  "headline": "Apple and Google app stores remain available in Russia. Activists and officials say that’s a good thing.",
+  "content": "The cybersecurity firm Cloudflare also remains active in Russia. Withdrawing its services would hurt Russians’ ability to access independent sources of information, officials say.",
+  "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U7ZIQJUU6II6ZOZROT6ANQFDUU.jpg&w=916",
+  "link": "https://www.washingtonpost.com/technology/2022/04/06/navalny-apple-app-russia/",
+  "isActive": true,
+  "country": "germany"
+}]
