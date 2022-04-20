@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   color: white;
-  padding-top: 2px;
+  padding-top: .5rem;
   font-family: Poppins;
 }
 .h1 {
@@ -11,9 +11,9 @@
 }
 
 .logo {
-  padding: 10px;
-  height: 30px;
-  width: 30px;
+  padding: 1rem;
+  height: 2rem;
+  width: 2rem;
 }
 .background {
   background-color: #7BA6D3;
@@ -21,32 +21,40 @@
 
 .search {
   background-color: #7BA6D3;
-  border-radius: 40px;
-  padding-bottom: 8px;
-  padding-left: 10px;
-  margin: 10px;
-  height: 20px;
+  border-radius: 3rem;
+  padding-bottom: .3rem;
+  padding-left: .5rem;
+  margin: .5rem;
+  height: 1.5rem;
   color: white;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: Poppins;
+}
+
+.news {
+
+  margin-left: .5rem;
+  margin-right: .5rem;
+  
 }
 
 .newsList {
   background-color: #f3f3f3;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 25px;
-  width: 480px;
-  height: 200px;
-  vertical-align: middle;
+  border-radius: 2rem;
+  height: 13rem;
   display: inline-block;
   text-align: justify;
   font-family: Poppins;
+  width: 100rem;
+  margin-bottom: 1rem;
+
 }
 .newsListImage {
-  width: 150px;
-  height: 200px;
-  vertical-align: middle;
+  width: 9rem;
+  height: 10rem;
+  margin: 1rem;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
 }
 .newsListContents {
@@ -90,8 +98,9 @@
 }
 
 .screenImage {
-  width: 486px;
-  height: 182px;
+  width: 18rem;
+  height: 14rem;
+  align-items: center;
 }
 
 .headline {
@@ -128,4 +137,25 @@
   border-color: white;
   color: white;
   font-family: Poppins;
+}
+
+
+@media all and (max-width: 820px) {
+  .header {
+    color: transparent
+  }
+}
+
+
+.MuiGrid-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+}
+
+.MuiGrid-item {
+  margin-bottom: 1rem;
+
 }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
 import "./Map.css";
 import Screen from "./Screen";
-import newData from "../data/news.json";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY, LOAD_DATA, fetchData} from "../actionCreators";
 import { Button } from "@mui/material";
@@ -61,7 +60,6 @@ if(earthquakeData && (category === "earthquake")  ) {
   }, [store.getState().categoryReducer.category]);
 
 
-
   return (
   <MapContainer
       center={[51.505, -0.09]}
@@ -102,6 +100,7 @@ if(earthquakeData && (category === "earthquake")  ) {
     </MapContainer>
   );
 }
+
 function mapStateToProps(state: { country: string }) {
   const { country } = state;
   return { country: state.country };

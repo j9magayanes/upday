@@ -27,7 +27,7 @@ function Newslist(_props: any) {
       <Search country={_props.country}/>
       <News/>
       {/* <button className="button" onClick={()=> handleOnClick()}>Reset Filter</button> */}
-</>
+      </>
 }
 function mapStateToProps(state: { country: any }) {
   const { country } = state;
