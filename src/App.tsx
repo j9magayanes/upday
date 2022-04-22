@@ -18,10 +18,11 @@ function App() {
     <div>
       <Header />
       <Grid container>
-        <Grid item xl={3} >
+       {country ?<Grid item  xs={12} sm={12} md={12} lg={12}  xl={3}  >
           <Newslist country={country} />   
-        </Grid>
-        <Grid item  xs={12} sm={12} xl={9} >
+        </Grid> :null
+        } 
+        <Grid item  xs={12} sm={12} md={12} lg={12} xl={9} >
           <Map />
         </Grid>
       </Grid>

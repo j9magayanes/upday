@@ -32,7 +32,6 @@
 }
 
 .news {
-
   margin-left: .5rem;
   margin-right: .5rem;
   
@@ -127,6 +126,100 @@
   color: white;
 }
 
+
+@media all and (max-width: 300px) {
+  .newsListImage {
+    display: none;
+  }
+  .newsListHeadline  {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+  }
+  .newsListContent {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+  }
+}
+
+@media all and (min-width: 301px) {
+  .newsList {
+    width: 20rem;
+    height: 25rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .newsListImage {
+    width: 20rem;
+  }
+  .newsListHeadline  {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+  }
+  .newsListContent {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+  }
+}
+
+@media all and (min-width: 601px) {
+
+  .newsListImage {
+    width: 25rem;
+    height: 15rem;
+  }
+
+}
+
+@media all and (min-width: 960px) {
+  .newsListImage {
+    width: 12rem;
+    height: 15rem;
+  }
+
+}
+@media all and (min-width: 1156px) {
+  .newsListImage {
+    width: 16rem;
+    height: 15rem;
+  }
+
+}
+
+@media all and (min-width: 1242px) {
+  .newsListImage {
+    width: 18rem;
+    height: 15rem;
+  }
+}
+
+
+@media all and (min-width: 1478px) {
+  .newsListImage {
+    width: 20rem;
+    height: 15rem;
+  }
+}
+
+
+@media all and (min-width: 1690px) {
+  .newsListImage {
+    width: 24rem;
+    height: 15rem;
+  }
+}
+
+
+@media all and (min-width: 1922px) {
+  .newsListImage {
+    width: 10rem;
+    height: 8rem;
+  }
+}
+
 .MuiSelect-select.MuiSelect-select {
   padding-right: 10px;
   margin-right: 10px;
@@ -137,13 +230,6 @@
   border-color: white;
   color: white;
   font-family: Poppins;
-}
-
-
-@media all and (max-width: 820px) {
-  .header {
-    color: transparent
-  }
 }
 
 

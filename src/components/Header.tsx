@@ -11,10 +11,10 @@ function Header() {
       <Grid>
         <img className="logo" src={Logo}></img>
       </Grid>
-      <Grid item xs={8}  md={9}>
+      <Grid item xs={6}  md={9}>
         <h1 className="header">Globe News</h1>
       </Grid>
-      <Grid item xs={2} md={2}>
+      <Grid item xs={3} md={2}>
         <SearchBar />
       </Grid>
     </Grid>

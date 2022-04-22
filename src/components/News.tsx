@@ -33,18 +33,16 @@ function News() {
     <div className="news" >
       {categories.map((news) => (
         <Grid container className="newsList">
-          <Grid item md={3} xs={1}>
-            <div>
+          <Grid item  lg={3}  md={3}>
               <img className="newsListImage" src={news.image}></img>
-            </div>
           </Grid>
-          <Grid item md={9} xs={11}>
-            <div className="newsListContents">
+          <Grid item lg={9} md={9}  className="newsListContent">
+         
               <p className="newsListHeadline">{news.headline}</p>
               <p className="newsListContent">
                 {news.content.substring(0, 150)}...
               </p>
-            </div>
+          
           </Grid>
         </Grid>
       ))}
