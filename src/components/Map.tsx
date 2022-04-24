@@ -64,7 +64,7 @@ if(earthquakeData && (category === "earthquake")  ) {
   <MapContainer
       center={[51.505, -0.09]}
       zoom={4}
-      maxZoom={3}
+      maxZoom={10}
       maxBounds={[
         [-90, -180],
         [90, 180],

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true});
 
-const {getCarbonData, getWildfireData, getEarthquakeData} = require("../handlers/data");
+const {getCarbonData, getWildfireData, getEarthquakeData,getMoneyData} = require("../handlers/data");
 
 
 router.route("/carbon")
@@ -10,6 +10,8 @@ router.route("/wildfire")
 .get(getWildfireData)
 router.route("/earthquake")
 .get(getEarthquakeData)
+router.route("/money")
+.get(getMoneyData)
 
 
 

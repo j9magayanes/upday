@@ -3,7 +3,7 @@
   margin: 0;
   color: white;
   padding-top: .5rem;
-  font-family: Poppins;
+  font-family: Inter;
 }
 .h1 {
   padding: 0;
@@ -22,13 +22,15 @@
 .search {
   background-color: #7BA6D3;
   border-radius: 3rem;
-  padding-bottom: .3rem;
-  padding-left: .5rem;
   margin: .5rem;
-  height: 1.5rem;
+  height: 4rem;
   color: white;
   font-size: 1.25rem;
-  font-family: Poppins;
+  font-family: Inter;
+  font-size: 3rem;
+  font-weight: bolder;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .news {
@@ -43,42 +45,39 @@
   height: 13rem;
   display: inline-block;
   text-align: justify;
-  font-family: Poppins;
+  font-family: Inter;
   width: 100rem;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 
 }
 .newsListImage {
   width: 9rem;
   height: 10rem;
-  margin: 1rem;
-  align-items: center;
-  justify-content: center;
   border-radius: 10px;
 }
 .newsListContents {
   vertical-align: top;
   text-align: justify;
-  height: 10px;
+  height: 5px;
   text-overflow: ellipsis;
-  font-family: Poppins;
+  font-family: Inter;
 }
 .newsListHeadline {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 5rem;
+  margin-right: 3rem;
   margin-bottom: 0px;
   word-wrap: break-word;
   font-weight: 600;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .newsListContent {
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-top: 10px;
+  margin-left: 5rem;
+  margin-right: 3rem;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .popUp {
@@ -86,14 +85,14 @@
   height: 330px;
   align-items: center;
   display: block;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .screen {
   vertical-align: middle;
   display: inline-block;
   text-align: justify;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .screenImage {
@@ -107,7 +106,7 @@
   font-weight: 30px;
   width: 290px;
   word-wrap: break-word;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .newsContent {
@@ -115,92 +114,139 @@
   width: 290px;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .option {
-  font-family: Poppins;
+  font-family: Inter;
 }
 
 .form {
   color: white;
 }
 
-
-@media all and (max-width: 300px) {
-  .newsListImage {
-    display: none;
-  }
+@media all and (max-width: 650px) {
   .newsListHeadline  {
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.5rem;
+  }
+  .newsListContent {
+    font-size: 1rem;
+  }
+}
+
+@media all and (min-width: 651px) {
+  .newsListHeadline  {
+    font-size: 1.5rem;
+  }
+  .newsListContent {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (min-width: 750px) {
+  .newsListHeadline  {
+    font-size: 1.5rem;
+  }
+  .newsListContent {
+    font-size: 1.2rem;
+  }
+}
+
+@media all and (min-width: 772px) {
+  .newsListHeadline  {
+    font-size: 1.8rem;
+  }
+  .newsListContent {
+    font-size: 1.3rem;
+  }
+}
+
+@media all and (min-width: 1100px) {
+  .newsListHeadline  {
+    font-size: 1.8rem;
+  }
+  .newsListContent {
+    font-size: 1.5rem;
+  }
+}
+
+@media all and (min-width: 1240px) {
+  .newsListHeadline  {
+    font-size: 1.8rem;
+  }
+  .newsListContent {
+    font-size: 1.8rem;
+  }
+}
+
+@media all and (min-width: 1920px) {
+  .newsListHeadline  {
     font-size: 1rem;
   }
   .newsListContent {
-    margin-left: auto;
-    margin-right: auto;
     font-size: 1rem;
   }
 }
 
-@media all and (min-width: 301px) {
-  .newsList {
-    width: 20rem;
-    height: 25rem;
-    align-items: center;
-    justify-content: center;
-  }
-  .newsListImage {
-    width: 20rem;
-  }
+@media all and (min-width: 2528px) {
   .newsListHeadline  {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .newsListContent {
-    margin-left: auto;
-    margin-right: auto;
     font-size: 1rem;
   }
 }
 
-@media all and (min-width: 601px) {
-
-  .newsListImage {
-    width: 25rem;
-    height: 15rem;
+@media all and (min-width: 3572px) {
+  .newsListHeadline  {
+    font-size: 1.5rem;
   }
-
+  .newsListContent {
+    font-size: 1.3rem;
+  }
 }
+
+@media all and (max-width: 959px) {
+  .newsListImage {
+    width: 10rem;
+    height: 13rem;
+    margin: 0;
+  }
+  .newsListHeadline  {
+    margin-top: 0;
+    padding-top: 1rem;
+  }
+}
+
 
 @media all and (min-width: 960px) {
   .newsListImage {
     width: 12rem;
-    height: 15rem;
+    height: 18rem;
   }
-
 }
-@media all and (min-width: 1156px) {
+
+@media all and (min-width: 961px) {
+  .newsListImage {
+    width: 12rem;
+    height: 13rem;
+  }
+}
+
+@media all and (min-width: 1241px) {
   .newsListImage {
     width: 16rem;
-    height: 15rem;
+    height: 13rem;
   }
 
 }
 
-@media all and (min-width: 1242px) {
-  .newsListImage {
-    width: 18rem;
-    height: 15rem;
-  }
-}
 
 
 @media all and (min-width: 1478px) {
   .newsListImage {
     width: 20rem;
-    height: 15rem;
+    height: 13rem;
   }
 }
 
@@ -208,15 +254,24 @@
 @media all and (min-width: 1690px) {
   .newsListImage {
     width: 24rem;
-    height: 15rem;
+    height: 13rem;
   }
 }
 
 
-@media all and (min-width: 1922px) {
+@media all and (min-width: 1920px) {
   .newsListImage {
-    width: 10rem;
-    height: 8rem;
+    width: 12rem;
+    height: 13rem;
+  }
+}
+
+
+
+
+@media all and (max-width: 600px){
+  .header{
+    display: none;
   }
 }
 
@@ -225,11 +280,9 @@
   margin-right: 10px;
   margin-top: 10px;
   color:white;
-  font-family: Poppins;
   background: transparent;
   border-color: white;
   color: white;
-  font-family: Poppins;
 }
 
 

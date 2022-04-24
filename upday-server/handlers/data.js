@@ -28,3 +28,12 @@ exports.getEarthquakeData = async function(req, res, next){
   }
 };
 
+exports.getMoneyData = async function(req, res, next){
+  try {
+    let data= await db.Data.find({category: "money"})
+    return res.status(200).json(data);
+  } catch (err) {
+    return next(err);
+  }
+};
+

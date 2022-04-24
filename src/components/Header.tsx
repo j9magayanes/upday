@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Header.css";
 import { Grid } from "@material-ui/core";
 import SearchBar from "./SearchBar";
-import Logo from "../assets/images/upday_logo_blue.png";
+import Logo from "../assets/images/logo.png";
 
 function Header() {
   return (

@@ -6,7 +6,7 @@ export const useEarthquakeData = () => {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/earthquake")
+      "http://localhost:8081/api/data/money")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({
