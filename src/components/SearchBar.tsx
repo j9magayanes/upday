@@ -36,7 +36,7 @@ function SearchBar() {
         <option value="all" className="option">Select a Category</option>
         <option value="carbon" className="option">Carbon Emission</option>
         <option value="wildfire" className="option">Wildfire</option>
-        <option value="earthquake" className="option">Earthquake</option>
+        <option value="earthquake" className="option">Money</option>
       </Select>
     </FormControl>
   );

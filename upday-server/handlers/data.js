@@ -37,3 +37,55 @@ exports.getMoneyData = async function(req, res, next){
   }
 };
 
+
+exports.getMoneyAverage = async function(req, res, next){
+  try {
+    const agg = await db.Data.aggregate([
+      { $match: { category: "money" } },
+      { $group: {
+        _id: "$category",
+        ave: { $avg: "$value1" }
+      }}
+    ])
+    average = agg[0].ave
+    console.log(average)
+  } catch (err) {
+    return next(err);
+  }
+};
+
+exports.getWildfireAverage = async function(req, res, next){
+  try {
+    const agg = await db.Data.aggregate([
+      { $match: { category: "wildfire" } },
+      { $group: {
+        _id: "$category",
+        ave: { $avg: "$value1" }
+      }}
+    ])
+    average = agg[0].ave
+    console.log(average)
+  } catch (err) {
+    return next(err);
+  }
+};
+
+exports.getCarbonAverage = async function(req, res, next){
+  try {
+    const agg = await db.Data.aggregate([
+      { $match: { category: "carbon" } },
+      { $group: {
+        _id: "$category",
+        ave: { $avg: "$value1" }
+      }}
+    ])
+    average = agg[0].ave
+    console.log(average)
+    return res.status(200).json(agg);
+  } catch (err) {
+    return next(err);
+  }
+};
+
+
+
