@@ -266,6 +266,27 @@
   }
 }
 
+@media all and (min-width: 4070px) {
+  .newsListHeadline  {
+    margin-top: 0;
+    padding-top: 1rem;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 2rem;
+  }
+  .newsListContent  {
+    margin-top: 0;
+    padding-top: 1rem;
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 1.5rem;
+  }
+  .newsListImage {
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
 
 
 

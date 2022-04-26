@@ -24,8 +24,10 @@ function Newslist(_props: any) {
   }
 
   return  <>
+      <div className="scroll">
       <Search country={_props.country}/>
       <News/>
+      </div>
       {/* <button className="button" onClick={()=> handleOnClick()}>Reset Filter</button> */}
       </>
 }
