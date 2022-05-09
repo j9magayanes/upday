@@ -4,6 +4,7 @@
   color: white;
   padding-top: .5rem;
   font-family: Inter;
+  width: 100%;
 }
 .h1 {
   padding: 0;
@@ -308,7 +309,7 @@
 
 
 .MuiGrid-container {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;

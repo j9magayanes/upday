@@ -1,8 +1,8 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import Map from "./components/Map";
+import Map from "./components/Map/Map";
 import Newslist from "./components/Newslist";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Screen from "./components/Screen";
 import "./App.css";
 import { Grid } from "@material-ui/core";

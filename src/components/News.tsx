@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "./Header.css";
+import "../components/Header/Header.css";
 import { Grid } from "@material-ui/core";
 import { useNewsData } from "../useNewsData";
 import { useDispatch, useSelector, useStore } from "react-redux";

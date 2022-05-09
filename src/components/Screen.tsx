@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button } from "@mui/material";
-import "./Header.css";
+import "../components/Header/Header.css";
 import { useNewsData } from "../useNewsData";
 import { useDispatch, useSelector, useStore } from "react-redux";
 

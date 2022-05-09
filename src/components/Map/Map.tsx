@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
 import "./Map.css";
-import Screen from "./Screen";
+import Screen from "../Screen";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
-import { ADD_COUNTRY, LOAD_DATA, fetchData} from "../actionCreators";
+import { ADD_COUNTRY, } from "../../actionCreators";
 import { Button } from "@mui/material";
-import { categoryReducer, dataReducer } from "../rootReducer";
-import { useCarbonData } from "../useCarbonData";
-import { useWildfireData } from "../useWildfireData";
-import { useEarthquakeData, useEarthquakeAverage } from "../useEarthquakeData";
+import { categoryReducer, dataReducer } from "../../rootReducer";
+import { useCarbonData } from "../../useCarbonData";
+import { useWildfireData } from "../../useWildfireData";
+import { useEarthquakeData, useEarthquakeAverage } from "../../useEarthquakeData";
 import { constants } from "os";
-import { useNewsData } from "../useNewsData";
+import { useNewsData } from "../../useNewsData";
 
 
 function Map() {
