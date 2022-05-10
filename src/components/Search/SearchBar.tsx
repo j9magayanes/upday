@@ -1,21 +1,11 @@
-import React, { useState } from "react";  
-import "../components/Header/Header.css";
+import "../Header/Header.css";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { connect, useDispatch, useStore } from "react-redux";
-import { addCategory, ADD_CATEGORY } from "../actionCreators";
-import { withStyles } from "@mui/material";
+import { ADD_CATEGORY } from "../../actionCreators";
 
 function SearchBar() {
   const dispatch = useDispatch();
-  const store = useStore();
-  const state = useState();
-
-  const styles = {
-    transparentBar: {
-      color: '#FFFFFF'
-    }
-  };
 
   function handleSelectChange(event: { target: { value: any } }) {
     dispatch({
@@ -23,7 +13,6 @@ function SearchBar() {
       category: event.target.value,
     });
   }
-  const category = store.getState().category;
 
   return (
     <FormControl fullWidth >
@@ -43,7 +32,6 @@ function SearchBar() {
 }
 
 function mapStateToProps(state: { category: any }) {
-  const { category } = state;
   return { category: state.category };
 }
 

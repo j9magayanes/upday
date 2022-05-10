@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Newslist.css';
 import News from "./News"
-import Search from "./Search"
-import { Button } from "@mui/material";
-import { ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY } from "../actionCreators";
+import Search from "../Search/Search"
+import { REMOVE_CATEGORY, REMOVE_COUNTRY } from "../../actionCreators";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 
 function Newslist(_props: any) {

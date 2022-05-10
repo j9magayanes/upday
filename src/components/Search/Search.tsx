@@ -1,9 +1,5 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useSelector, useStore } from "react-redux";
-import "../components/Header/Header.css";;
-
-
+import "../Header/Header.css";;
 
 function Search(_props: any){
   const store = useStore();

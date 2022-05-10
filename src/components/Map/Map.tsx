@@ -4,13 +4,10 @@ import "./Map.css";
 import Screen from "../Screen";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY, } from "../../actionCreators";
-import { Button } from "@mui/material";
-import { categoryReducer, dataReducer } from "../../rootReducer";
-import { useCarbonData } from "../../useCarbonData";
-import { useWildfireData } from "../../useWildfireData";
-import { useEarthquakeData, useEarthquakeAverage } from "../../useEarthquakeData";
-import { constants } from "os";
-import { useNewsData } from "../../useNewsData";
+import { useCarbonData } from "../../hooks/useCarbonData";
+import { useWildfireData } from "../../hooks/useWildfireData";
+import { useEarthquakeData } from "../../hooks/useEarthquakeData";
+import { useNewsData } from "../../hooks/useNewsData";
 
 
 function Map() {
@@ -25,7 +22,6 @@ function Map() {
   const wildfireAverage: any = 325.73;
   const moneyAverage = 124.45;
   const datas: { long: any; lat: any; value1: any }[] = []
-  const [country, setCountry] = useState("");
 
   var categories: any[] = []
 

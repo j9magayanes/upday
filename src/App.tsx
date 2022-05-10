@@ -1,14 +1,10 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState } from "react";
 import Map from "./components/Map/Map";
-import Newslist from "./components/Newslist";
+import Newslist from "./components/News/Newslist";
 import Header from "./components/Header/Header";
-import Screen from "./components/Screen";
 import "./App.css";
 import { Grid } from "@material-ui/core";
 import { useSelector, useStore } from "react-redux";
-import { useCarbonData } from "./useCarbonData";
-import { ClassNames } from "@emotion/react";
 
 function App() {
   const store = useStore();

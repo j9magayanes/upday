@@ -1,7 +1,5 @@
 import axios from "axios";
 
-
-
 export function apiCall(method, path, data) {
   return new Promise((resolve, reject) => {
     return axios[method.toLowerCase()](path, data)
@@ -14,13 +12,11 @@ export function apiCall(method, path, data) {
   });
 }
 
-
 export const ADD_CATEGORY = "ADD_CATEGORY"
 export const REMOVE_CATEGORY = "REMOVE_CATEGORY"
 export const ADD_COUNTRY = "ADD_COUNTRY"
 export const REMOVE_COUNTRY = "REMOVE_COUNTRY"
 export const LOAD_DATA = "LOAD_DATA"
-
 export function addCategory(category) {
     return {
         type: ADD_CATEGORY,
