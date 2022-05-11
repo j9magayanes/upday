@@ -1,20 +1,20 @@
 .h2 {
-    background-color: pink;
-      padding: 0;
-      margin:0;
-      width: 70vw;
-      height: 100vh;
-  }
+  background-color: pink;
+  padding: 0;
+  margin: 0;
+  width: 70vw;
+  height: 100vh;
+}
 
-  .button {
-    font-family: Inter;
-    color: #7BA6D3;
-    background-color: transparent;
-    border-color: transparent;
-    margin-left: .5rem;
-  }
+.button {
+  font-family: Inter;
+  color: #7ba6d3;
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: 0.5rem;
+}
 
 .scroll {
-  overflow:hidden; 
-  height:81rem;
+  overflow: hidden;
+  height: 81rem;
 }

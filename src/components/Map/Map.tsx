@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
 import "./Map.css";
-import Screen from "../Screen";
+import NewsPopUpCard from "../News/NewsCarouselCard";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY } from "../../actions/actionCreators";
 import { useCarbonData } from "../../hooks/useCarbonData";
@@ -122,7 +122,7 @@ function Map() {
             }}
           >
             <Popup className="popUp">
-              <Screen />
+              <NewsPopUpCard />
             </Popup>
           </Marker>
         )

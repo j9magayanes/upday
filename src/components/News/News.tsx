@@ -7,21 +7,14 @@ import { useSelector, useStore } from "react-redux";
 function News() {
   const store = useStore();
   const newsData: any = useNewsData();
-
   const category = useSelector(() => store.getState().categoryReducer.category);
   const country = useSelector(() => store.getState().countryReducer.country);
 
-  /* const countries = newsData
-  const activeCountries = newsData.filter(news => news.isActive == true)
-  const filteredCountries = newsData.filter(news => news.country === "germany")
-  const activeFilteredCountries = newsData.filter(news => (news.country === country && news.category === category))
- */
-
   var categories: any[] = [];
   if (newsData && category) {
-    newsData.items.map((data: { category: any; country: any }) => {
+    newsData.items.forEach((data: { category: any; country: any }) => {
       if (data.category === category && data.country === country) {
-        return categories.push(data);
+        categories.push(data);
       }
     });
   }

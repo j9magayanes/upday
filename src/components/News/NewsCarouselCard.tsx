@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import "../components/Header/Header.css";
-import { useNewsData } from "../hooks/useNewsData";
+import "../../components/Header/Header.css";
+import { useNewsData } from "../../hooks/useNewsData";
 import { useSelector, useStore } from "react-redux";
 
 function Screen() {
