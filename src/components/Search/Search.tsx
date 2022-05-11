@@ -6,7 +6,7 @@ function Search(_props: any){
   const country = useSelector(() => store.getState().countryReducer.country);
   const countryString = country.toString()
     return (
-     country ?  <div className="search">NEWS IN {countryString.toUpperCase()} </div> : null 
+     country ?  <div className="latest"><h3>Latest News in {countryString[0].toUpperCase()+countryString.slice(1)} </h3></div> : null 
     )
   }
 

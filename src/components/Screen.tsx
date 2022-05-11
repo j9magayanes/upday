@@ -9,11 +9,11 @@ function Screen() {
   const newsData: any = useNewsData();
   const category = useSelector(() => store.getState().categoryReducer.category);
 
-  var categories: any[] = []
+  const categories: any[] = [];
   if(newsData && category  ) {
-    newsData.items.map((data: { category: any; })=> {
+    newsData.items.forEach((data: { category: any; })=> {
     if (data.category === category) {
-      return categories.push(data);
+       categories.push(data);
     }
   })} 
 

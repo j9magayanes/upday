@@ -20,7 +20,7 @@ function Map() {
   const carbonAverage: any = 229.92;
   const wildfireAverage: any = 325.73;
   const moneyAverage = 124.45;
-  const datas: { long: any; lat: any; value1: any }[] = [];
+  const datas: { long: any; lat: any; value: any }[] = [];
 
   const categories: any[] = [];
 
@@ -40,7 +40,7 @@ function Map() {
       case "carbon":
         return { average: carbonAverage, data: carbonData, radius: 200_000, opacity : 0.25 };
       case "wildfire":
-        return { average: wildfireAverage, data: wildfireData, radius: 8000, opacity: 0.25 };
+        return { average: wildfireAverage, data: wildfireData, radius: 15000, opacity: 0.25 };
       case "earthquake":
         return { average: moneyAverage, data: earthquakeData, radius: 20_000, opacity: 0.25 };
       default:
@@ -59,7 +59,7 @@ function Map() {
     });
   }
 
-  data.items.map((data: { long: any; lat: any; value1: any }) => {
+  data.items.map((data: { long: any; lat: any; value: any }) => {
     return datas.push(data);
   });
 
@@ -91,9 +91,9 @@ function Map() {
           stroke={false}
           fillOpacity={opacity}
           color={
-            news.value1 <= average / 2
+            news.value <= average / 2
               ? "green"
-              : 3 * (average / 2) > news.value1
+              : 3 * (average / 2) > news.value
               ? "red"
               : "yellow"
           }
@@ -107,7 +107,7 @@ function Map() {
           lat: number;
           long: number;
           country: any;
-          value1: any;
+          value: any;
         }) => (
           <Marker
             key={news._id}
