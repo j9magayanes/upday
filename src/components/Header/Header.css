@@ -5,9 +5,7 @@
   color: black;
   padding-top: .5rem;
   justify-content: space-between;
-  padding-right: .5rem;
   padding-left: .7rem;
-  font-family: Inter;
   width: 100%;
   z-index:2;
   height:85px;
@@ -145,6 +143,7 @@
 }
 
 .upday {
+  font-family: Roboto;
   align-items: center;
   align-content: center;
   align-self: center;
