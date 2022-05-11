@@ -64,7 +64,7 @@
   height: 13rem;
   display: inline-block;
   text-align: justify;
-  font-family: Inter;
+  font-family: Roboto;
   width: 100rem;
   margin-top: 1.5rem;
   margin-bottom: 2rem;
@@ -80,6 +80,7 @@
   height: 5px;
   text-overflow: ellipsis;
   font-family: Inter;
+  font-size: 20px;
 }
 .newsListHeadline {
   margin-left: 5rem;
@@ -87,6 +88,7 @@
   margin-bottom: 0px;
   word-wrap: break-word;
   font-weight: 600;
+  font-size: small;
   font-family: Inter;
 }
 
@@ -154,10 +156,10 @@
 
 @media all and (max-width: 650px) {
   .newsListHeadline {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .newsListContent {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -166,7 +168,7 @@
     font-size: 1.5rem;
   }
   .newsListContent {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -175,16 +177,16 @@
     font-size: 1.5rem;
   }
   .newsListContent {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 @media all and (min-width: 772px) {
   .newsListHeadline {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .newsListContent {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }
 

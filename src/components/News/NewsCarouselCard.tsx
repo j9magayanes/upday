@@ -4,7 +4,7 @@ import "../../components/Header/Header.css";
 import { useNewsData } from "../../hooks/useNewsData";
 import { useSelector, useStore } from "react-redux";
 
-function Screen() {
+function NewsCard() {
   const store = useStore();
   const newsData: any = useNewsData();
   const category = useSelector(() => store.getState().categoryReducer.category);
@@ -16,14 +16,6 @@ function Screen() {
        categories.push(data);
     }
   })} 
-
-/*   const activeCountries = newsData.filter((news: { isActive: boolean; }) => news.isActive == true);
-  const filteredCountries = newsData.filter(
-    (news: { country: string; }) => news.country === "germany"
-  );
-  const activeFilteredCountries = newsData.filter(
-    (news: { category: any; }) => news.category === category
-  ); */
 
   return (
     <Carousel>
@@ -44,4 +36,4 @@ function Screen() {
   );
 }
 
-export default Screen;
+export default NewsCard;

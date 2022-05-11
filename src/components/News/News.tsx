@@ -10,7 +10,7 @@ function News() {
   const category = useSelector(() => store.getState().categoryReducer.category);
   const country = useSelector(() => store.getState().countryReducer.country);
 
-  var categories: any[] = [];
+  const categories: any[] = [];
   if (newsData && category) {
     newsData.items.forEach((data: { category: any; country: any }) => {
       if (data.category === category && data.country === country) {
@@ -20,18 +20,17 @@ function News() {
   }
 
   return (
-    <div className="news" >
+    <div className="news">
       {categories.map((news) => (
         <Grid container className="newsList">
-          <Grid item  lg={3} xs={2} >
-              <img className="newsListImage" src={news.image} alt=" "></img>
+          <Grid item lg={3} xs={2}>
+            <img className="newsListImage" src={news.image} alt=" "></img>
           </Grid>
-          <Grid item lg={9} xs={10}  className="newsListContent">
-              <p className="newsListHeadline">{news.headline}</p>
-              <p className="newsListContent">
-                {news.content.substring(0, 150)}...
-              </p>
-          
+          <Grid item lg={9} xs={10} className="newsListContent">
+            <p className="newsListHeadline">{news.headline}</p>
+            <p className="newsListContent">
+              {news.content.substring(0, 150)}...
+            </p>
           </Grid>
         </Grid>
       ))}
