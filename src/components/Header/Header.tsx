@@ -3,20 +3,17 @@ import "./Header.css";
 import { Grid } from "@material-ui/core";
 import SearchBar from "../Search/SearchBar";
 import Logo from "../../assets/images/logo.png";
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 function Header() {
   return (
-    <Grid container className="background">
-      <Grid>
-        <img className="logo" src={Logo} alt=" "></img>
-      </Grid>
-      <Grid item xs={6}  md={9}>
-        <h1 className="header">Globe News</h1>
-      </Grid>
-      <Grid item xs={3} md={2}>
-        <SearchBar />
-      </Grid>
-    </Grid>
+    
+    <div className="header">
+      <div><h3 className="header">Globe News</h3></div>
+      <div className="search-bar"><SearchBar/></div>
+    </div>
+   
   );
 }
 
