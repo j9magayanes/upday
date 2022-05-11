@@ -10,7 +10,10 @@
   font-family: Inter;
   width: 100%;
   z-index:2;
+  height:85px;
+ 
 }
+
 .h3 {
   padding: 0;
   margin: 0;
@@ -22,8 +25,7 @@
   width: 2rem;
 }
 .background {
-  background-color: #7BA6D3;
- 
+  background-color: black;
 }
 
 .search {
@@ -31,7 +33,7 @@
   margin-right: .5rem;
   padding-right: 5rem;
   border-radius: 3rem;
-  height: 4rem;
+  height: 3rem;
   color: black;
   font-size: 1.25rem;
   font-family: Inter;
@@ -42,7 +44,11 @@
   cursor: pointer;
 }
 .search-bar {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
+}
+
+.brand {
+  display: flex;
 }
 
 .news {
@@ -136,6 +142,14 @@
 
 .form {
   color: white;
+}
+
+.upday {
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  padding-right: .5rem;
+    padding-left: .7rem;
 }
 
 @media all and (max-width: 650px) {

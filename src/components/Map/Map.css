@@ -2,7 +2,7 @@
     width: 100%;
     height: calc(100% - 90px);
     position: absolute;
-    background-color: #aad3df;
+    background-color: black;
   }
 .newsImage {
   height: 10rem;

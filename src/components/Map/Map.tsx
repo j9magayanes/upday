@@ -44,7 +44,7 @@ function Map() {
 
 
   if(newsData && category  ) {
-    newsData.items.map((data: { category: any; })=> {
+    newsData.items.map((data: { category: any; }) => {
     if (data.category === category) {
       return categories.push(data);
     }
@@ -88,13 +88,30 @@ if(earthquakeData && (category === "earthquake")  ) {
       ]}
       bounceAtZoomLimits={false}
     >
+
+ {/* L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
+}); */}
+
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png"
+        subdomains= 'abcd'
         noWrap={true}
-        minZoom={2} />
+        minZoom={2}
+        maxZoom={20} />
       {datas.map((news) => (
-        <Circle center={[news.lat,news.long]} color={news.value1 <= (average /2) ? "green" : (3*(average / 2)) >  news.value1 ? "red"  : "yellow"} radius={category === "earthquake" ? 20000 : 200000}></Circle>
+        <Circle center={[news.lat,news.long]} 
+        stroke={false}
+        fillOpacity={0.25}
+        color={news.value1 <= (average /2) ? "green" : (3*(average / 2)) >  news.value1 ? "red"  : "yellow"}
+         radius={category === "earthquake" ? 20_000 : 8_000} />
+
+
       ))}
       {categories.map((news: { _id: React.Key | null | undefined; lat: number; long: number; country: any; value1: any }) => (
      <Marker
@@ -119,7 +136,6 @@ if(earthquakeData && (category === "earthquake")  ) {
 }
 
 function mapStateToProps(state: { country: string }) {
-  const { country } = state;
   return { country: state.country };
 }
 
