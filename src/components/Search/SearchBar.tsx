@@ -2,7 +2,7 @@ import "../Header/Header.css";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { connect, useDispatch, useStore } from "react-redux";
-import { ADD_CATEGORY } from "../../actionCreators";
+import { ADD_CATEGORY } from "../../actions/actionCreators";
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -31,9 +31,9 @@ function SearchBar() {
   );
 }
 
-function mapStateToProps(state: { category: any }) {
+const mapStateToProps = function(state: { category: any }) {
   return { category: state.category };
-}
+};
 
 export default (connect(mapStateToProps)(SearchBar));
 

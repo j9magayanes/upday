@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet
 import "./Map.css";
 import Screen from "../Screen";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
-import { ADD_COUNTRY, } from "../../actionCreators";
+import { ADD_COUNTRY, } from "../../actions/actionCreators";
 import { useCarbonData } from "../../hooks/useCarbonData";
 import { useWildfireData } from "../../hooks/useWildfireData";
 import { useEarthquakeData } from "../../hooks/useEarthquakeData";

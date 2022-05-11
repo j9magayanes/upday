@@ -1,4 +1,4 @@
-import {  ADD_CATEGORY, ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY, LOAD_DATA} from './actionCreators';
+import {  ADD_CATEGORY, ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY, LOAD_DATA} from './actions/actionCreators';
 
 const initialState = {
     country: "",

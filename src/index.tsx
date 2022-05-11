@@ -7,7 +7,6 @@ import { compose, createStore, combineReducers} from "redux";
 import { categoryReducer, countryReducer, dataReducer } from "./rootReducer";
 import { Provider } from 'react-redux';
 
-
 declare global {
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;

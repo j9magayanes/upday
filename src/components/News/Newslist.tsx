@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Newslist.css';
 import News from "./News"
 import Search from "../Search/Search"
-import { REMOVE_CATEGORY, REMOVE_COUNTRY } from "../../actionCreators";
+import { REMOVE_CATEGORY, REMOVE_COUNTRY } from "../../actions/actionCreators";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 
 function Newslist(_props: any) {
