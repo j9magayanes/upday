@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Circle } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
 import "./Map.css";
-import NewsPopUpCard from "../News/NewsCarouselCard";
+import Screen from "../Screen";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
-import { ADD_COUNTRY } from "../../actions/actionCreators";
+import { ADD_COUNTRY, } from "../../actions/actionCreators";
 import { useCarbonData } from "../../hooks/useCarbonData";
 import { useWildfireData } from "../../hooks/useWildfireData";
-import { useEarthquakeData } from "../../hooks/useEarthquakeData";
+import { useMoneyData } from "../../hooks/useMoneyData";
 import { useNewsData } from "../../hooks/useNewsData";
+
 
 function Map() {
   const dispatch = useDispatch();
@@ -15,58 +16,72 @@ function Map() {
   const category = useSelector(() => store.getState().categoryReducer.category);
   const carbonData: any = useCarbonData();
   const newsData: any = useNewsData();
+  const moneyData: any = useMoneyData();
   const wildfireData: any = useWildfireData();
-  const earthquakeData: any = useEarthquakeData();
   const carbonAverage: any = 229.92;
   const wildfireAverage: any = 325.73;
   const moneyAverage = 124.45;
-  const datas: { long: any; lat: any; value: any }[] = [];
+  const datas: { long: any; lat: any; value1: any }[] = []
 
-  const categories: any[] = [];
+  var categories: any[] = []
 
-  type CategoryConfiguration = {
-    average: number;
-    opacity: number;
-    radius: number;
-    data: {
-      items: Array<any>;
-    };
-  };
-
-  function getData(category: string): CategoryConfiguration {
+  let average: number = 0
+  if(category){
     switch (category) {
-      case "":
-        return { average: 0, data: { items: [] }, radius: 0, opacity : 0.25 };
-      case "carbon":
-        return { average: carbonAverage, data: carbonData, radius: 200_000, opacity : 0.25 };
-      case "wildfire":
-        return { average: wildfireAverage, data: wildfireData, radius: 15000, opacity: 0.25 };
-      case "earthquake":
-        return { average: moneyAverage, data: earthquakeData, radius: 20_000, opacity: 0.25 };
+      case 'carbon':
+        average = carbonAverage;
+        break;
+      case 'wildfire':
+        average = wildfireAverage;
+        break;
+      case 'money':
+        average = moneyAverage;
+        break;
       default:
-        throw new Error(`unknown category "${category}"`);
+        console.log("no category");
     }
   }
 
-  const { average, data, radius,  opacity 
-  } = getData(category);
+  console.log(category)
+console.log(average)
 
-  if (newsData && category) {
-    newsData.items.forEach((data: { category: any }) => {
-      if (data.category === category) {
-        categories.push(data);
-      }
+
+  if(newsData && category  ) {
+    newsData.items.map((data: { category: any; }) => {
+    if (data.category === category) {
+      return categories.push(data);
+    }
+  })} 
+
+if(carbonData && (category === "carbon")  ) {
+  carbonData.items.map((data: { long: any; lat: any;value1: any  })=> {
+  return datas.push(data);
+})} 
+
+if(wildfireData && (category === "wildfire")  ) {
+  wildfireData.items.map((data: { long: any; lat: any;value1: any  })=> {
+  return datas.push(data);
+})} 
+
+if(moneyData && (category === "money")  ) {
+  moneyData.items.map((data: { long: any; lat: any; value1: any  })=> {
+  return datas.push(data);
+})} 
+
+ function handleOnClick(country: string) {
+    dispatch({
+      type: ADD_COUNTRY,
+      country: country,
     });
   }
 
-  data.items.map((data: { long: any; lat: any; value: any }) => {
-    return datas.push(data);
-  });
+  useEffect(() => {
+  }, [store.getState().categoryReducer.category]);
 
-  useEffect(() => {}, [store.getState().categoryReducer.category]);
+
 
   return (
-    <MapContainer
+  <MapContainer
       center={[51.505, -0.09]}
       zoom={4}
       maxZoom={10}
@@ -76,57 +91,49 @@ function Map() {
       ]}
       bounceAtZoomLimits={false}
     >
+
+ {/* L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	subdomains: 'abcd',
+	minZoom: 0,
+	maxZoom: 20,
+	ext: 'png'
+}); */}
+
       <TileLayer
-        attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png"
-        subdomains="abcd"
+        subdomains= 'abcd'
         noWrap={true}
         minZoom={2}
-        maxZoom={20}
-      />
-
+        maxZoom={20} />
       {datas.map((news) => (
-        <Circle
-          center={[news.lat, news.long]}
-          stroke={false}
-          fillOpacity={opacity}
-          color={
-            news.value <= average / 2
-              ? "green"
-              : 3 * (average / 2) > news.value
-              ? "red"
-              : "yellow"
-          }
-          radius={radius}
-        />
-      ))}
+        <Circle center={[news.lat,news.long]} 
+        stroke={false}
+        fillOpacity={0.25}
+        color={news.value1 <= (average /2) ? "green" : (3*(average / 2)) >  news.value1 ? "red"  : "yellow"}
+         radius={category === "money" ? 20_000 : 80_000} />
 
-      {categories.map(
-        (news: {
-          _id: React.Key | null | undefined;
-          lat: number;
-          long: number;
-          country: any;
-          value: any;
-        }) => (
-          <Marker
-            key={news._id}
-            position={[news.lat, news.long]}
-            eventHandlers={{
-              click: () => {
-                dispatch({
-                  type: ADD_COUNTRY,
-                  country: news.country,
-                });
-              },
-            }}
-          >
-            <Popup className="popUp">
-              <NewsPopUpCard />
-            </Popup>
-          </Marker>
-        )
-      )}
+
+      ))}
+      {categories.map((news: { _id: React.Key | null | undefined; lat: number; long: number; country: any; value1: any }) => (
+     <Marker
+          key={news._id}
+          position={[news.lat,news.long]}
+          eventHandlers={{
+            click: () => {
+              dispatch({
+                type: ADD_COUNTRY,
+                country: news.country,
+              });
+            },
+          }}
+        >
+          <Popup keepInView={true} className="popUp">
+            <Screen />
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }
@@ -136,12 +143,11 @@ function mapStateToProps(state: { country: string }) {
 }
 
 export default connect(mapStateToProps)(Map);
-function news(
-  news: any
-): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
+function news(news: any): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
   throw new Error("Function not implemented.");
 }
 
-function dispatch(arg0: { type: string; country: string }) {
+function dispatch(arg0: { type: string; country: string; }) {
   throw new Error("Function not implemented.");
 }
+

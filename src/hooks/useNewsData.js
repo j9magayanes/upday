@@ -5,7 +5,7 @@ export const useNewsData = () => {
   
     useEffect(() => {
       fetch(
-        "http://localhost:8081/api/news/all")
+        "https://immense-inlet-95240.herokuapp.com/api/news/all")
                     .then((res) => res.json())
                     .then((json) => {
                         setData({

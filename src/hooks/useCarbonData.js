@@ -5,7 +5,7 @@ export const useCarbonData = () => {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/carbon")
+      "https://immense-inlet-95240.herokuapp.com/api/data/carbon")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({

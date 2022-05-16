@@ -6,7 +6,7 @@ export const useWildfireData = () => {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/wildfire")
+      "https://immense-inlet-95240.herokuapp.com/api/data/wildfire")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({

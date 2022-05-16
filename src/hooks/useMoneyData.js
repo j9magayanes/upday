@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 
-export const useEarthquakeData = () => {
+export const useMoneyData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/money")
+      "https://immense-inlet-95240.herokuapp.com/api/data/money")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({
@@ -17,12 +17,12 @@ export const useEarthquakeData = () => {
   return data;
 };
 
-export const useEarthquakeAverage = () => {
+export const useMoneyAverage = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/money/average")
+      "https://immense-inlet-95240.herokuapp.com/api/data/money/average")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({
