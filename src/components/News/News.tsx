@@ -3,6 +3,12 @@ import "../Header/Header.css";
 import { Grid } from "@material-ui/core";
 import { useNewsData } from "../../hooks/useNewsData";
 import { useSelector, useStore } from "react-redux";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function News() {
   const store = useStore();
@@ -22,17 +28,20 @@ function News() {
   return (
     <div className="news">
       {categories.map((news) => (
-        <Grid container className="newsList">
-          <Grid item lg={3} xs={2}>
-            <img className="newsListImage" src={news.image} alt=" "></img>
-          </Grid>
-          <Grid item lg={9} xs={10} className="newsListContent">
-            <p className="newsListHeadline">{news.headline}</p>
-            <p className="newsListContent">
+        <Card sx={{ maxWidth: 300, border: "none", boxShadow: "none", margin: "1px" }} >
+          <CardMedia component="img" height="200" image={news.image} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {news.headline}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
               {news.content.substring(0, 150)}...
-            </p>
-          </Grid>
-        </Grid>
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
       ))}
     </div>
   );

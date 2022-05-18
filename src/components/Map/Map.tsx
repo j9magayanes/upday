@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  Circle,
+  CircleMarker,
+} from "react-leaflet";
 import "./Map.css";
 import Screen from "../Screen";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
-import { ADD_COUNTRY, } from "../../actions/actionCreators";
+import { ADD_COUNTRY } from "../../actions/actionCreators";
 import { useCarbonData } from "../../hooks/useCarbonData";
 import { useWildfireData } from "../../hooks/useWildfireData";
 import { useMoneyData } from "../../hooks/useMoneyData";
 import { useNewsData } from "../../hooks/useNewsData";
-
+import Bottom from "../Bottom/Bottom";
 
 function Map() {
   const dispatch = useDispatch();
@@ -21,20 +28,20 @@ function Map() {
   const carbonAverage: any = 229.92;
   const wildfireAverage: any = 325.73;
   const moneyAverage = 124.45;
-  const datas: { long: any; lat: any; value1: any }[] = []
+  const datas: { long: any; lat: any; value1: any; country: any;  }[] = [];
 
-  var categories: any[] = []
+  var categories: any[] = [];
 
-  let average: number = 0
-  if(category){
+  let average: number = 0;
+  if (category) {
     switch (category) {
-      case 'carbon':
+      case "carbon":
         average = carbonAverage;
         break;
-      case 'wildfire':
+      case "wildfire":
         average = wildfireAverage;
         break;
-      case 'money':
+      case "money":
         average = moneyAverage;
         break;
       default:
@@ -42,46 +49,44 @@ function Map() {
     }
   }
 
-  console.log(category)
-console.log(average)
 
+  if (newsData && category) {
+    newsData.items.map((data: { category: any }) => {
+      if (data.category === category) {
+        return categories.push(data);
+      }
+    });
+  }
 
-  if(newsData && category  ) {
-    newsData.items.map((data: { category: any; }) => {
-    if (data.category === category) {
-      return categories.push(data);
-    }
-  })} 
+  if (carbonData && category === "carbon") {
+    carbonData.items.map((data: { long: any; lat: any; value1: any; country: any; }) => {
+      return datas.push(data);
+    });
+  }
 
-if(carbonData && (category === "carbon")  ) {
-  carbonData.items.map((data: { long: any; lat: any;value1: any  })=> {
-  return datas.push(data);
-})} 
+  if (wildfireData && category === "wildfire") {
+    wildfireData.items.map((data: { long: any; lat: any; value1: any; country: any;  }) => {
+      return datas.push(data);
+    });
+  }
 
-if(wildfireData && (category === "wildfire")  ) {
-  wildfireData.items.map((data: { long: any; lat: any;value1: any  })=> {
-  return datas.push(data);
-})} 
+  if (moneyData && category === "money") {
+    moneyData.items.map((data: { long: any; lat: any; value1: any ; country: any; }) => {
+      return datas.push(data);
+    });
+  }
 
-if(moneyData && (category === "money")  ) {
-  moneyData.items.map((data: { long: any; lat: any; value1: any  })=> {
-  return datas.push(data);
-})} 
-
- function handleOnClick(country: string) {
+  function handleOnClick(country: string) {
     dispatch({
       type: ADD_COUNTRY,
       country: country,
     });
   }
 
-  useEffect(() => {
-  }, [store.getState().categoryReducer.category]);
-
-
+  useEffect(() => {}, [store.getState().categoryReducer.category]);
 
   return (
-  <MapContainer
+    <MapContainer
       center={[51.505, -0.09]}
       zoom={4}
       maxZoom={10}
@@ -91,8 +96,7 @@ if(moneyData && (category === "money")  ) {
       ]}
       bounceAtZoomLimits={false}
     >
-
- {/* L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
+      {/* L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.{ext}', {
 	attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	subdomains: 'abcd',
 	minZoom: 0,
@@ -103,39 +107,60 @@ if(moneyData && (category === "money")  ) {
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png"
-        subdomains= 'abcd'
+        subdomains="abcd"
         noWrap={true}
         minZoom={2}
-        maxZoom={20} />
+        maxZoom={20}
+      />
       {datas.map((news) => (
-        <Circle center={[news.lat,news.long]} 
-        stroke={false}
-        fillOpacity={0.25}
-        color={news.value1 <= (average /2) ? "green" : (3*(average / 2)) >  news.value1 ? "red"  : "yellow"}
-         radius={category === "money" ? 20_000 : 80_000} />
-
-
-      ))}
-      {categories.map((news: { _id: React.Key | null | undefined; lat: number; long: number; country: any; value1: any }) => (
-     <Marker
-          key={news._id}
-          position={[news.lat,news.long]}
+        <Circle
+          center={[news.lat, news.long]}
+          stroke={false}
+          fillOpacity={0.25}
+          color={
+            news.value1 <= average / 2
+              ? "green"
+              : 3 * (average / 2) > news.value1
+              ? "red"
+              : "yellow"
+          }
+          radius={category === "money" ? 20_000 : 80_000}
           eventHandlers={{
-            click: () => {
-              dispatch({
-                type: ADD_COUNTRY,
-                country: news.country,
-              });
-            },
+            mouseover: (event) => event.target.openPopup(),
           }}
         >
-          <Popup keepInView={true} className="popUp">
-            <Screen />
-          </Popup>
-        </Marker>
+          <Popup><p>Location: {news.country}<br></br>Value: {news.value1}</p> </Popup>
+        </Circle>
       ))}
+      {categories.map(
+        (news: {
+          _id: React.Key | null | undefined;
+          lat: number;
+          long: number;
+          country: any;
+          value1: any;
+        }) => (
+          <Marker
+            key={news._id}
+            position={[news.lat, news.long]}
+            eventHandlers={{
+              click: () => {
+                dispatch({
+                  type: ADD_COUNTRY,
+                  country: news.country,
+                });
+              },
+            }}
+          >
+            <Popup keepInView={true} className="popUp">
+              <Screen />
+            </Popup>
+          </Marker>
+        )
+      )}
     </MapContainer>
   );
+  <Bottom />;
 }
 
 function mapStateToProps(state: { country: string }) {
@@ -143,11 +168,12 @@ function mapStateToProps(state: { country: string }) {
 }
 
 export default connect(mapStateToProps)(Map);
-function news(news: any): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
+function news(
+  news: any
+): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
   throw new Error("Function not implemented.");
 }
 
-function dispatch(arg0: { type: string; country: string; }) {
+function dispatch(arg0: { type: string; country: string }) {
   throw new Error("Function not implemented.");
 }
-

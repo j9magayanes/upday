@@ -31,8 +31,8 @@ function SearchBar() {
             <em>None</em>
           </MenuItem>
           <MenuItem value="carbon">Carbon Emission</MenuItem>
-          <MenuItem value="wildfire">WildFire</MenuItem>
-          <MenuItem value="earthquake">Earthquake</MenuItem>
+          <MenuItem value="wildfire">WildFire Incidents</MenuItem>
+          <MenuItem value="money">Average Grant</MenuItem>
         </Select>
 
       </FormControl>
